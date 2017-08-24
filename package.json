@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/mothra42/friendFinder.git"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
