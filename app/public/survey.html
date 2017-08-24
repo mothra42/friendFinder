@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Friend Finder</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <h1>Survey</h1>
+        <hr/>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">add_a_photo</i>
+                <input id="photo" type="text" class="validate">
+                <label for="photo">Add a link to a photo</label>
+              </div>
+            </div>
+            <hr/>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q1">
+                  <option value="" disabled selected>You like bees</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 1</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q2">
+                  <option value="" disabled selected>You like bats</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 2</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q3">
+                  <option value="" disabled selected>You like bears</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 3</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q4">
+                  <option value="" disabled selected>You like cats</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 4</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q5">
+                  <option value="" disabled selected>You like dogs</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 5</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q6">
+                  <option value="" disabled selected>You like bugs</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 6</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q7">
+                  <option value="" disabled selected>You like birds</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 7</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q8">
+                  <option value="" disabled selected>You like zebras</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 8</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q9">
+                  <option value="" disabled selected>You like okapis</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 9</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s4">
+                <select id="q10">
+                  <option value="" disabled selected>You like narwhals</option>
+                  <option value="1">1 (strongly disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (strongly agree)</option>
+                </select>
+                <label>Question 10</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <button class="btn btn-large waves-effect waves-light" id="submit" type="submit" name="action">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal1" class="modal">
+    <div class="modal-content center-align">
+      <h2>Best Match!</h2>
+      <h4 id ="matchName"></h4>
+      <img src="#" alt="Match Pic">
+    </div>
+    <div class="modal-footer center-align">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">You're Right!</a>
+    </div>
+  </div>
+
+  <footer>
+        <div class="container">
+            <p><a class="footer" href="/api/friends">API Friends List</a> | <a  class="footer" href="https://github.com/mothra42/friendFinder">GitHub Repo</a></p>
+        </div>
+  </footer>
+  <style>
+  </style>
+
+  <script>
+  //intializes dropdown for form
+  $(document).ready(function()
+  {
+    $('select').material_select();
+    $('.modal').modal();
+    //when you submit the form
+    $("#submit").on("click", function(event)
+    {
+      event.preventDefault();
+      //create new object from form
+      console.log($("#name").val());
+      console.log($("#photo").val());
+      var userProfile = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        survey: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
+                 $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+      };
+
+      $.post("/api/friends", userProfile, function(data)
+      {
+        if(data)
+        {
+          $("#modal1").modal("open");
+        }
+      });
+    });
+  });
+  </script>
+</body>
+</html>
