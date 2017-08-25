@@ -33,7 +33,7 @@
             <hr/>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q1">
+                <select id="q1" class="select">
                   <option value="" disabled selected>You like bees</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -46,7 +46,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q2">
+                <select id="q2" class="select">
                   <option value="" disabled selected>You like bats</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -59,7 +59,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q3">
+                <select id="q3" class="select">
                   <option value="" disabled selected>You like bears</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -72,7 +72,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q4">
+                <select id="q4" class="select">
                   <option value="" disabled selected>You like cats</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -85,7 +85,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q5">
+                <select id="q5" class="select">
                   <option value="" disabled selected>You like dogs</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -98,7 +98,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q6">
+                <select id="q6" class="select">
                   <option value="" disabled selected>You like bugs</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -111,7 +111,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q7">
+                <select id="q7" class="select">
                   <option value="" disabled selected>You like birds</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -124,7 +124,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q8">
+                <select id="q8" class="select">
                   <option value="" disabled selected>You like zebras</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -137,7 +137,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q9">
+                <select id="q9" class="select">
                   <option value="" disabled selected>You like okapis</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -150,7 +150,7 @@
             </div>
             <div class="row">
               <div class="input-field col s4">
-                <select id="q10">
+                <select id="q10" class="select">
                   <option value="" disabled selected>You like narwhals</option>
                   <option value="1">1 (strongly disagree)</option>
                   <option value="2">2</option>
@@ -176,8 +176,8 @@
   <div id="modal1" class="modal">
     <div class="modal-content center-align">
       <h2>Best Match!</h2>
-      <h4 id ="matchName"></h4>
-      <img src="#" alt="Match Pic">
+      <h4 id="matchName"></h4>
+      <img id="matchPhoto" src="#" alt="Match Pic">
     </div>
     <div class="modal-footer center-align">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">You're Right!</a>
@@ -190,6 +190,10 @@
         </div>
   </footer>
   <style>
+  #matchPhoto {
+    height: 300px;
+    width: 400px;
+  }
   </style>
 
   <script>
@@ -198,27 +202,57 @@
   {
     $('select').material_select();
     $('.modal').modal();
-    //when you submit the form
-    $("#submit").on("click", function(event)
-    {
-      event.preventDefault();
-      //create new object from form
-      console.log($("#name").val());
-      console.log($("#photo").val());
-      var userProfile = {
-        name: $("#name").val(),
-        photo: $("#photo").val(),
-        survey: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
-                 $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
-      };
 
-      $.post("/api/friends", userProfile, function(data)
+    function completeForm()
+    {
+      isComplete = true;
+      $(".validate").each(function()
       {
-        if(data)
+        if($(this).val() === "")
         {
-          $("#modal1").modal("open");
+          isComplete = false;
         }
       });
+      $(".select").each(function()
+      {
+        if($(this).val() === null)
+        {
+          console.log($("#q1").val());
+          isComplete = false;
+        }
+      });
+      return isComplete;
+    }
+
+
+      //when you submit the form
+      $("#submit").on("click", function(event)
+      {
+        event.preventDefault();
+        //create new object from form
+        if(completeForm())
+        {
+          var userProfile = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            survey: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
+                     $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+          };
+          $.post("/api/friends", userProfile, function(data)
+          {
+            if(data)
+            {
+              $("#matchName").text(data.name);
+              $("#matchPhoto").attr("src", data.photo);
+              $("#modal1").modal("open");
+            }
+          });
+
+      }
+      else
+      {
+        alert("PLEASE COMPLETE THE FORM!!!");
+      }
     });
   });
   </script>
